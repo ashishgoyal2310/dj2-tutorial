@@ -28,6 +28,7 @@ urlpatterns = [
 api_urlpatterns = [
     path('', api_views.api_root),
     path('', include('app.users.routers')),
+    path('', include('app.snippets.routers')),
 ]
 
 urlpatterns += [
