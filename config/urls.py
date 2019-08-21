@@ -23,6 +23,7 @@ from config import api_views
 
 urlpatterns = [
     path('superadmin/', admin.site.urls),
+    path('trackers/', include('app.trackers.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 api_urlpatterns = [
