@@ -22,5 +22,8 @@ python manage.py migrate
 ## runserver
 python manage.py runserver 127.0.0.1:8000
 
+## run celery
+celery -A config.celery worker --loglevel=INFO
+
 ## visit tracker screen
 - http://127.0.0.1:8000/trackers/
