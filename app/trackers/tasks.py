@@ -1,4 +1,5 @@
 import os
+import uuid
 import requests
 from django.conf import settings
 from config import celery_app
@@ -26,6 +27,7 @@ def get_celery_task_status(task_id):
 @celery_app.task(name="get_file_from_url")
 def get_file_from_url(fileurl):
     file_name = fileurl.split('/')[-1]
+    file_name = file_name or uuid.uuid1().hex
     file_path = os.path.join(settings.MEDIA_ROOT, file_name)
 
     with open(file_path, "wb") as fp:
