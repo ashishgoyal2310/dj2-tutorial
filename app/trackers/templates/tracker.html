@@ -41,6 +41,37 @@
         <div id="download_link_list" class="tab-pane fade">
             <h3>List</h3>
             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div id="id-section" role="tablist" aria-multiselectable="true">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h5 class="panel-title">
+                            <a href="#id-panel-to-toggle" class="download-link-list-cls" data-toggle="collapse-remove" data-parent="#id-section" data-trackid="e2fef98b-fb8a-4fd1-9889-7c1875131d66" aria-expanded="false" aria-controls="id-panel-to-toggle">e2fef98b-fb8a-4fd1-9889-7c1875131d66</a>
+                        </h5>
+                    </div>
+                    <div id="id-panel-to-toggle" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            Response...
+                            <pre></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h5 class="panel-title">
+                            <a href="#id-panel-to-toggle" class="download-link-list-cls" data-toggle="collapse-remove" data-parent="#id-section" data-trackid="e2fef98b-fb8a-4fd1-9889-7c1875131d66" aria-expanded="false" aria-controls="id-panel-to-toggle">e2fef98b-fb8a-4fd1-9889-7c1875131d66</a>
+                        </h5>
+                    </div>
+                    <div id="id-panel-to-toggle" class="panel-collapse collapse" role="tabpanel">
+                        <div class="panel-body">
+                            Response...
+                            <pre></pre>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
         <div id="download_detail" class="tab-pane fade">
             <h3>Detail</h3>
@@ -106,6 +137,40 @@
                     console.log(responseJSON);
                 } else {
                     alert(err);
+                }
+            }
+        });
+    });
+    $(document).on('click', '.download-link-list-cls', function (eve) {
+        panel_ele = $(eve.target).parents('.panel-default');
+        response_panel_ele = panel_ele.find('.panel-collapse');
+
+        // close all response panel
+        $('.panel-collapse').removeClass('in');
+        response_panel_ele.addClass('in');
+
+        var trackID = $(eve.target).data('trackid');
+        if (!trackID) return false;
+
+        var ajaxUrl = '/api/trackers/' + trackID + '/';
+
+        $.ajax({
+            async: true,
+            type: "GET",
+            dataType : "json",
+            url: ajaxUrl,
+            success: function (response) {
+                var responseJSON = JSON.stringify(response, undefined, 4);
+                response_panel_ele.find('.panel-body pre').html(responseJSON);
+            },
+            error: function (xhr, error, err) {
+                var responseJSON = xhr.responseJSON;
+                responseJSON = JSON.stringify(responseJSON, undefined, 4);
+
+                if (xhr.status === 400 && responseJSON) {
+                    response_panel_ele.find('.panel-body pre').html(responseJSON);
+                } else {
+                    response_panel_ele.find('.panel-body pre').html(err);
                 }
             }
         });
