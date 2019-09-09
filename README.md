@@ -27,3 +27,7 @@ celery -A config.celery worker --loglevel=INFO
 
 ## visit tracker screen
 - http://127.0.0.1:8000/trackers/
+
+## Redis
+redis-server
+redis-cli

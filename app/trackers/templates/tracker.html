@@ -96,7 +96,7 @@
                             <th>Downloaded Size</th>
                             <th>Pending Size</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Name</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -188,27 +188,15 @@
                 var task_id = response.task_id;
                 var ele_class_name = task_id + '_cls';
 
-                if (response.state === 'Downloading') {
-                    var htmlEle = ''+
-                        '<tr class="'+ ele_class_name +'">' +
-                            '<td>'+ task_id +'</td>'+
-                            '<td>'+ response.total_size +'</td>'+
-                            '<td>'+ response.downloaded_size +'</td>'+
-                            '<td>'+ response.pending_size +'</td>'+
-                            '<td>'+ response.state +'</td>'+
-                            '<td></td>'+
-                        '</tr>';
-                } else {
-                    var htmlEle = ''+
-                        '<tr class="'+ ele_class_name +'">' +
-                            '<td>'+ task_id +'</td>'+
-                            '<td>'+ 0 +'</td>'+
-                            '<td>'+ 0 +'</td>'+
-                            '<td>'+ 0 +'</td>'+
-                            '<td>'+ response.state +'</td>'+
-                            '<td></td>'+
-                        '</tr>';
-                }
+                var htmlEle = ''+
+                    '<tr class="'+ ele_class_name +'">' +
+                        '<td>'+ task_id +'</td>'+
+                        '<td>'+ response.total_size +'</td>'+
+                        '<td>'+ response.downloaded_size +'</td>'+
+                        '<td>'+ response.pending_size +'</td>'+
+                        '<td>'+ response.state +'</td>'+
+                        '<td>'+ response.file_name  +'</td>'+
+                    '</tr>';
 
                 if ($('.'+ele_class_name).length) {
                     $('.'+ele_class_name).css('color', 'red');
