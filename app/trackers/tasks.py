@@ -41,9 +41,14 @@ def get_file_from_url(fileurl):
     file_path = os.path.join(settings.MEDIA_ROOT, file_name)
     file_url = os.path.join(settings.MEDIA_URL, file_name)
 
+    task_id = current_task.request.id
+    # print("Downloading %s" % file_path)
+
+    tracker_task_ids = cache.get('tracker_task_ids', [])
+    tracker_task_ids.append(task_id)
+    cache.set('tracker_task_ids', tracker_task_ids, timeout=settings.CACHE_TTL)
+
     with open(file_path, "wb") as fp:
-        task_id = current_task.request.id
-        # print("Downloading %s" % file_path)
         response = requests.get(fileurl, stream=True)
         total_size = response.headers.get('content-length')
 
