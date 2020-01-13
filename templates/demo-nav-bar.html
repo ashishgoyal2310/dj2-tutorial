@@ -24,33 +24,9 @@
       padding-top: 20px
       padding-bottom: 20px
     }*/
-    ._header_title_position {
-      width: auto;
-      padding: 20px 30px;
-      text-align: center;
+    body {
+      font-family: Arial, Helvetica, sans-serif;
     }
-    ._header_desc_position {
-      padding: 40px 0px 0px 0px;
-      margin: 0px 30px
-    }
-    
-
-    .navbar-bg-primary {
-      background-color: #007bff!important;
-    }
-    .navbar-nav>li>a {
-        color: #fff !important;
-    }
-    .nav>li>a:focus, .nav>li>a:hover {
-        text-decoration: none;
-        background-color: #337ab7!important;
-    }
-    .navbar-bg-primary .navbar-nav>.active>a, .navbar-bg-primary .navbar-nav>.active>a:focus, .navbar-bg-primary .navbar-nav>.active>a:hover {
-        color: #fff;
-        background-color: #337ab7!important;
-    }
-
-
     .center-align {
       margin: 0px 5%;
       text-align: center;
@@ -66,25 +42,64 @@
     .txt-red {
       color: #F00
     }
+    
+
+    ._header {
+      /*border: 3px solid #4CAF50;*/
+      padding: 10px 20px;
+    }
+    ._header_title_position {
+      width: auto;
+    }
+    ._header ._header_desc_position {
+      /*border: 3px solid #4CAF50;*/
+      padding: 20px 0px;
+    }
+
+
+    .navbar-bg-primary {
+      background-color: #007bff!important;
+    }
+    .navbar-nav>li>a {
+        color: #fff !important;
+    }
+    .nav>li>a:focus, .nav>li>a:hover {
+        text-decoration: none;
+        background-color: #337ab7!important;
+    }
+    .navbar-bg-primary .navbar-nav>.active>a, .navbar-bg-primary .navbar-nav>.active>a:focus, .navbar-bg-primary .navbar-nav>.active>a:hover {
+        color: #fff;
+        background-color: #337ab7!important;
+    }
+    @media (min-width: 768px){
+        .navbar-nav{
+            float: none;
+            margin: 0 auto;
+            display: table;
+            table-layout: fixed;
+        }
+    }
   </style>
 </head>
 <body>
 
 <div class="page-header margin-0">
   <div class="row">
-    <div class="clearfix">
+    <div class="clearfix _header">
       <div class="col-xs-2 _header_title_position">
         <img alt="Teer Results" class="_header_logo" src="https://www.teerresults.com/images/logo.png?ezimgfmt=rs:100x100/rscb1/ng:webp/ngcb1">
       </div>
       <div class="col-xs-6 _header_desc_position">
-        <p class="_header_title">TEER RESULTS</p>
-        <p class="_header_desc">Shillong Teer results, Khanapara Teer results, & Jowai-Ladrymbai Teer Results online.</p>
+        <span class="_header_title">TEER RESULTS</span>
+        <br>
+        <br>
+        <span class="_header_desc">Shillong Teer results, Khanapara Teer results, & Jowai-Ladrymbai Teer Results online.</span>
       </div>
     </div>
   </div>
 </div>
 
-<nav class="navbar navbar-bg-primary">
+<nav class="navbar navbar-default navbar-bg-primary">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -151,7 +166,7 @@
         </tr>
       </tbody>
     </table>
-    <span style="font-size:1.3em;">Contact your nearest Teer Counter or Teer Agent for accuracy of Result.</span>
+    <span><strong>Contact your nearest Teer Counter or Teer Agent for accuracy of Result.</strong></span>
   </div>
 </div>
 
