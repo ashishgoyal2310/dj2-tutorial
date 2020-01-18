@@ -2,3 +2,4 @@ Django==2.0.13
 pytz==2019.1
 django-filter==2.2.0
 djangorestframework==3.9.4
+gunicorn==20.0.4

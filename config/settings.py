@@ -24,7 +24,7 @@ SECRET_KEY = '8!a$lv^)c-nc8kxg4jdguc1@gyc*fhym#0h$u1@h0xevcbx9eu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'dj2-tutorial.herokuapp.com']
 
 
 # Application definition
