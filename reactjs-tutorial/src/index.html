@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+
+      <title>Practice</title>
+      <style type="text/css">
+          
+    
+
+      </style>
+    </head>
+    <body>
+    
+      <div id='div1'>
+        Div with ID #div1
+      </div>    
+    
+
+      <script type="text/javascript">
+        // ---------- String Concat ----------
+
+        // let fname = 'Ashish'
+        // let lname = 'Goyal'
+        // let age = prompt('Guess the age.')
+        // alert(`Hi ${fname} ${lname} of age  ${age}`);
+
+        // ---------- function with default value argument ----------
+
+        // function welcome(user='ashish', message='default msg'){
+        //   alert(`Hi ${user}. Your message is ${message}`)
+        // }
+
+        // welcome('ash', 'hi');
+        // welcome();
+
+        // ---------- Arror function ----------
+
+        // function greeting(message) {
+        //   return alert(`${message} everyone`);
+        // }
+        // let greeting = (message) => alert(`${message} everyone`);
+        // greeting('Good morning');
+
+        // let greetingMulti = (arg1, arg2) => {
+        //   alert('Open console to check the error.');
+        //   if (!arg1) {
+        //     throw new Error('arg1 is required.')
+        //   }
+
+        //   if (!arg2) {
+        //     throw new Error('arg2 is required.')
+        //   }
+        // }
+        // greetingMulti();
+
+        // ---------- `this` with Arror function ----------
+
+        // function sayHi(argument) {
+        //   // body...
+        // }
+        // console.log(this);
+
+        // let nepal = {
+        //   // add property
+        //   mountains: ['Mas1', 'Msd2', 'Mdf3'],
+        //   // add method
+        //   printWithDash: function() {
+        //     // setTimeout(function(){
+        //     //   document.getElementById('div1').innerHTML(  this.mountains.join(' - '));
+        //     // }, 3000);
+        //     setTimeout(() => {
+        //       document.getElementById('div1').innerHTML = this.mountains.join(' - ');
+        //     }, 3000);
+        //   }
+        // }
+        // nepal.printWithDash();
+
+        // ---------- Destructuring Object/Array ----------
+        
+        // let student = {
+        //   name: 'Ashish',
+        //   uid: '1234',
+        //   age: 25,
+        //   address: 'student address, CA, UMN, 30102'
+        // }        
+        // let {uid, name} = student
+        // console.log(uid + ' - ' + name)
+
+        // let funStudent1 = (student) => {
+        //   let {name, age} = student;
+        //   console.log(`Hi ${name}, your age is ${age}`);
+        // }
+        // funStudent1(student);
+
+        // let funStudentInArgs = ({name, age}) => {
+        //   console.log(`Hi ${name}, your age is ${age}`);
+        // }
+        // funStudentInArgs(student);
+
+        // let [,secondEle,,fourthEle] = ['hi', 'ashish', 'goyal', 'welcome'];
+        // console.log(secondEle + ' - ', fourthEle);
+
+        // // ---------- Restructuring ----------
+        // let name = 'Everest';
+        // let height = 8435;
+        // let output = function() {
+        //   console.log(`Mt. ${this.name} is ${this.height} meter tall`);
+        // }
+
+        // let outputArrow = () => console.log(`'this' contains the windows object therefore don't have 'this.height': ${this.height}`);
+
+        // let advClmbing = {name, height, output, outputArrow};
+        // console.log(advClmbing);
+        // console.log(advClmbing.output());
+        // console.log(advClmbing.outputArrow());
+
+        // let adventureClimbing = {
+        //   name: 'Everest',
+        //   height: 8435,
+        //   output: function() {
+        //     console.log(`Mt. ${this.name} is ${this.height} meter tall`);
+        //   },
+        //   // function can also be writter an
+        //   output2() {
+        //     console.log(`Mt. ${this.name} is ${this.height} meter tall`);
+        //   }
+        // }
+        // console.log('--------------------------')
+        // console.log(adventureClimbing.output());
+        // console.log(adventureClimbing.output2());
+
+        // // ---------- Spread and rest ----------
+        // let names = ['Raju', 'Malik', 'Rakesh', 'Sameer'];
+        // let moreNames = ['Ram', 'Ravan'];
+
+        // let student = {name: 'Aman', lname: 'Singh'}
+        // let studentInfo = {contact: 'email', address: 'test, test, TEST, 123123'}
+        
+        // var allNames = [...names, ...moreNames];
+        // var [first, ...rest] = allNames;
+        // console.log(`allNames: ${allNames} - first: ${first} - rest: ${rest}`)
+
+        // var studentDetail = {...student, ...studentInfo};
+        // var {contact, ...rest} = studentDetail;
+        // console.log(studentDetail, contact, rest)
+
+
+        // ---------- Classes and constructor ----------
+        // function Holiday(dest, days) {
+        //   console.log('inside Holiday function "this":', this);
+        //   this.dest = dest
+        //   this.days = days
+        // }
+        // Holiday.prototype.info = function() {
+        //   console.log(`${this.dest} takes ${this.days} days.`)
+        // }
+        // const india = new Holiday('India', '30');
+        // india.info();
+
+        class Holiday {
+          constructor(dest, days) {
+            console.log('inside Holiday class "this":', this);
+            this.dest = dest
+            this.days = days
+          }
+
+          info() {
+            console.log(`${this.dest} takes ${this.days} days.`)
+          }
+
+        }
+        const indiaTrip = new Holiday('Delhi, India', 30);
+        indiaTrip.info();
+
+        // Extent existing class
+        class Expendition extends Holiday {
+          constructor(dest, days, gear) {
+            super(dest, days);
+            console.log('inside extended Expendition class "this":', this);
+            this.gear = gear;
+          }
+
+          info() {
+            super.info()
+            console.log(`Bring your ${this.gear.join(' and your ')}`) 
+          }
+        }
+
+        const newTripWithGears = new Expendition('Delhi, India', 30, ['Camera', 'Sunglasses', 'Boots', 'Flags']);
+        newTripWithGears.info();
+
+      </script>
+    </body>
+</html>
