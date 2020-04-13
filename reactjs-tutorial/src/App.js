@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import './index.css';
+import { Loading, LoadingWithProps, LoadingWithMessage } from './Loading'
 
 // function App() {
 //   return (
@@ -17,16 +18,34 @@ class App extends Component {
     super(props);
     // state
     this.state = {
-      users: []
+      loading: false,
+      users: [],
+      count: 0
     }
+    this.handleLoadMoreClick = this.handleLoadMoreClick.bind(this)
+  }
+
+  handleIncrement = () => {
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+
+  handleLoadMoreClick() {
+    this.getUser();
   }
 
   getUser() {
+    this.setState({
+      loading: true
+    })
+
     axios.get('https://api.randomuser.me/?results=5&nat=US').then((response) => 
       {
-        console.log(this, this.state.users.length, response.data.results)
+        // console.log(this, this.state.users.length, response.data.results)
         this.setState({
-          users: response.data.results
+          users: [...this.state.users, ...response.data.results],
+          loading: false
         })
       }
     );
@@ -37,21 +56,33 @@ class App extends Component {
   }
 
   render() {
+    let {loading, users} = this.state
     return (
-      <div className="App App-header"> 
-          
-          {this.state.users.length ? 
-            this.state.users.map((dct) => 
-              <div>
+      <div>
+        <div>
+          Counter!! <button onClick={this.handleIncrement}>Clicked {this.state.count} times</button>
+        </div>
+
+        <div className="App App-header">
+          <button onClick={this.handleLoadMoreClick}>Load More</button>
+
+          {!loading ?
+            (users.map((dct) =>
+              (<div key={dct.id.value}>
                 <h3>
-                  <img src={dct.picture.thumbnail} /> {dct.name.first} {dct.name.last}
+                  <img src={dct.picture.thumbnail} alt='thumbnail' /> {dct.name.first} {dct.name.last}
                 </h3>
                 <p>{dct.email}</p>
                 <hr />
               </div>
-            ) : 'loading...'
+              ))
+            ) : (
+              // <Loading message='Loading data...'/>
+              // <LoadingWithProps message='Loading data...'/>
+              <LoadingWithMessage message='Loading message...'/>
+            )
           }
-
+        </div>
       </div>
     )
   }
