@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import './index.css';
 import { Loading, LoadingWithProps, LoadingWithMessage } from './Loading'
+import { CounterApp, Example } from './Loading'
 
 // function App() {
 //   return (
@@ -18,7 +18,7 @@ class App extends Component {
     super(props);
     // state
     this.state = {
-      loading: false,
+      loading: true,
       users: [],
       count: 0
     }
@@ -52,7 +52,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.getUser();
+    // this.getUser();
   }
 
   render() {
@@ -62,6 +62,9 @@ class App extends Component {
         <div>
           Counter!! <button onClick={this.handleIncrement}>Clicked {this.state.count} times</button>
         </div>
+
+        <CounterApp />
+        <Example />
 
         <div className="App App-header">
           <button onClick={this.handleLoadMoreClick}>Load More</button>
@@ -82,6 +85,8 @@ class App extends Component {
               <LoadingWithMessage message='Loading message...'/>
             )
           }
+
+          <p>Currently using React Version | {React.version}</p>
         </div>
       </div>
     )
