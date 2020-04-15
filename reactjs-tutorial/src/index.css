@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.bg-color-grey { 
+  background-color: #282c34;
+  color: #fff;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

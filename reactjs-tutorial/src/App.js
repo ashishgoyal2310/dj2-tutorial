@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Loading, LoadingWithProps, LoadingWithMessage } from './Loading'
-import { CounterApp, Example } from './Loading'
+import { CounterApp } from './Loading'
 
 // function App() {
 //   return (
@@ -58,20 +58,22 @@ class App extends Component {
   render() {
     let {loading, users} = this.state
     return (
-      <div>
+      <div className="container-fluid">
         <div>
           Counter!! <button onClick={this.handleIncrement}>Clicked {this.state.count} times</button>
         </div>
 
         <CounterApp />
-        <Example />
 
-        <div className="App App-header">
-          <button onClick={this.handleLoadMoreClick}>Load More</button>
+        <div className="row bg-color-grey">
+          <div className="col-sm-12">
+            <button onClick={this.handleLoadMoreClick}>Load More</button>
+          </div>
+          <hr />
 
           {!loading ?
             (users.map((dct) =>
-              (<div key={dct.id.value}>
+              (<div className="col-sm-4" key={dct.id.value}>
                 <h3>
                   <img src={dct.picture.thumbnail} alt='thumbnail' /> {dct.name.first} {dct.name.last}
                 </h3>
@@ -86,8 +88,8 @@ class App extends Component {
             )
           }
 
-          <p>Currently using React Version | {React.version}</p>
         </div>
+        <p>Currently using React Version | {React.version}</p>
       </div>
     )
   }
