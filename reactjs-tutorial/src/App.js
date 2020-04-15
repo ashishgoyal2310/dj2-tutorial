@@ -55,41 +55,51 @@ class App extends Component {
     // this.getUser();
   }
 
-  render() {
+  showUsers() {
     let {loading, users} = this.state
     return (
+      !loading ?
+        (users.map((dct) =>
+          (<div className="col-sm-4" key={dct.id.value}>
+            <h3>
+              <img src={dct.picture.thumbnail} alt='thumbnail' /> {dct.name.first} {dct.name.last}
+            </h3>
+            <p>{dct.email}</p>
+            <hr />
+          </div>
+          ))
+        ) : (
+          // <Loading message='Loading data...'/>
+          // <LoadingWithProps message='Loading data...'/>
+          <LoadingWithMessage message='Loading message...'/>
+        )
+    )
+  }
+
+  render() {
+    return (
       <div className="container-fluid">
-        <div>
-          Counter!! <button onClick={this.handleIncrement}>Clicked {this.state.count} times</button>
+        <div className="row bg-color-grey">
+          <div className="col-sm-4">
+            Counter!! 
+            <button onClick={this.handleIncrement}>Clicked {this.state.count} times</button>
+          </div>
+          <div className="col-sm-4">
+            <CounterApp />
+          </div>
         </div>
 
-        <CounterApp />
-
-        <div className="row bg-color-grey">
-          <div className="col-sm-12">
+        <div className="row bg-color-custom">
+          <div className="col-sm-12" align="center">
             <button onClick={this.handleLoadMoreClick}>Load More</button>
           </div>
-          <hr />
 
-          {!loading ?
-            (users.map((dct) =>
-              (<div className="col-sm-4" key={dct.id.value}>
-                <h3>
-                  <img src={dct.picture.thumbnail} alt='thumbnail' /> {dct.name.first} {dct.name.last}
-                </h3>
-                <p>{dct.email}</p>
-                <hr />
-              </div>
-              ))
-            ) : (
-              // <Loading message='Loading data...'/>
-              // <LoadingWithProps message='Loading data...'/>
-              <LoadingWithMessage message='Loading message...'/>
-            )
-          }
+          {this.showUsers()}
 
+          <div className="col-sm-12" align="center">
+            <p>Currently using React Version | {React.version}</p>
+          </div>
         </div>
-        <p>Currently using React Version | {React.version}</p>
       </div>
     )
   }
