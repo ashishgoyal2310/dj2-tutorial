@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+.bg-color-blueviolet {
+  background-color: blueviolet;
+  color: #fff;
+}
+
 .bg-color-custom {
   background-color: #282c34;
   color: #fff;
@@ -22,9 +27,13 @@ code {
   color: #fff;
 }
 
+.App {
+  text-align: center;
+}
+
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   display: flex;
   flex-direction: column;
   align-items: center;

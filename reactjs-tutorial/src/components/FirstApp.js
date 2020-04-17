@@ -1,26 +1,15 @@
 import React, { Component } from 'react';
-import axios from 'axios'
-import { Loading, LoadingWithProps, LoadingWithMessage } from './Loading'
-import { CounterApp } from './Loading'
+import axios from 'axios';
+import { Loading, LoadingWithProps, LoadingWithMessage } from './Loading';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         Hello World!!
-//       </header>
-//     </div>
-//   );
-// }
-
-class App extends Component {
+class FirstApp extends Component {
   constructor(props) {
     super(props);
     // state
     this.state = {
       loading: true,
       users: [],
-      count: 0
+      count: 0,
     }
     this.handleLoadMoreClick = this.handleLoadMoreClick.bind(this)
   }
@@ -51,10 +40,6 @@ class App extends Component {
     );
   }
 
-  componentWillMount() {
-    // this.getUser();
-  }
-
   showUsers() {
     let {loading, users} = this.state
     return (
@@ -76,33 +61,30 @@ class App extends Component {
     )
   }
 
+  // componentWillMount() {
+  //   this.getUser();
+  // }
+
   render() {
     return (
-      <div className="container-fluid">
-        <div className="row bg-color-grey">
-          <div className="col-sm-4">
-            Counter!! 
-            <button onClick={this.handleIncrement}>Clicked {this.state.count} times</button>
+      <div className="App">
+          <header className="App-header">
+            React Basics
+          </header>
+          <p className="bg-color-blueviolet">
+              Counter!! 
+              <button onClick={this.handleIncrement}>Clicked {this.state.count} times</button>
+          </p>
+          <p>
+            The length of users : {this.state.users.length}.
+            <button onClick={this.handleLoadMoreClick}>Click Me</button> load more
+          </p>
+          <div className="row bg-color-custom">
+            {this.showUsers()}
           </div>
-          <div className="col-sm-4">
-            <CounterApp />
-          </div>
-        </div>
-
-        <div className="row bg-color-custom">
-          <div className="col-sm-12" align="center">
-            <button onClick={this.handleLoadMoreClick}>Load More</button>
-          </div>
-
-          {this.showUsers()}
-
-          <div className="col-sm-12" align="center">
-            <p>Currently using React Version | {React.version}</p>
-          </div>
-        </div>
       </div>
     )
   }
 }
 
-export default App;
+export default FirstApp

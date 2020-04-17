@@ -1,12 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { LoadingImage } from './Loading';
 
-export const Loading = () => <h2>Loading...</h2>
-
-export const LoadingWithProps = (props) => <h2>{props.message}</h2>
-
-export const LoadingWithMessage = ({ message }) => <h2>{message}</h2>
-
-export const CounterApp = () => {
+export const HooksApp = () => {
     // Declare a new state variable, which we'll call "count"
     const [count, setCount] = useState(0)
     const [searchQuery, setSearchQuery] = useState('react')
@@ -17,7 +12,7 @@ export const CounterApp = () => {
     useEffect(() => {
         console.log(`state changed. count: ${count}, searchQuery: ${searchQuery}`)
         document.title = `Clicked ${count} times`
-    }, [searchQuery])
+    }, [count, searchQuery])
 
     const incrementCount = () => {
         setCount(count + 1)
@@ -60,11 +55,13 @@ export const CounterApp = () => {
         )
     }
 
-    const showLoading = () => loading ? 'Loading...': ''
+    const showLoading = () => loading ? <LoadingImage /> : ''
 
     return (
-        <div>
-            <h4><u>React Hooks:</u></h4>
+        <div className="App">
+            <header className="App-header">
+              React Hooks
+            </header>
             {showCounterFirst()}
             {showCounterSecond()}
             {searchFrom()}
