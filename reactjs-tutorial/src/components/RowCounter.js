@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 
 class RowCounter extends Component {
-  state = {
-    value: this.props.counter.value,
-  };
+  // state = {
+  //   value: this.props.counter.value,
+  // };
 
   styles = {
     // fontSize: 15,
     // fontWeight: "bold",
   };
 
-  handleIncrement = (data) => {
-    console.log("handleIncrement", data);
-    this.setState({ value: this.state.value + 1 });
-  };
+  // handleIncrement = (data) => {
+  //   console.log("handleIncrement", data);
+  //   this.setState({ value: this.state.value + 1 });
+  // };
 
   render() {
     return (
@@ -23,7 +23,7 @@ class RowCounter extends Component {
           {this.formatCount()}
         </span>
         <button
-          onClick={() => this.handleIncrement({ preCount: this.state.value })}
+          onClick={() => this.props.onIncrement(this.props.counter)}
           className="btn btn-secondary btn-sm"
         >
           Increment
@@ -39,12 +39,14 @@ class RowCounter extends Component {
   }
 
   formatCount() {
-    return this.state.value === 0 ? "Zero" : this.state.value;
+    const { value } = this.props.counter;
+    return value === 0 ? "Zero" : value;
   }
 
   getBadgeClasses() {
+    const { value } = this.props.counter;
     let badgeClasses = "badge badge-pill m-2 ";
-    badgeClasses += this.state.value === 0 ? "badge-warning" : "badge-primary";
+    badgeClasses += value === 0 ? "badge-warning" : "badge-primary";
     return badgeClasses;
   }
 }
@@ -60,11 +62,26 @@ class RowCounters extends Component {
     tags: [],
   };
 
+  handleIncrement = (counter) => {
+    const updatedCounters = [...this.state.counters];
+    const index = updatedCounters.indexOf(counter);
+    updatedCounters[index].value++;
+    this.setState({ counters: updatedCounters });
+  };
+
   handleDelete = (counterId) => {
-    console.log("Counters handleDelete", counterId);
+    // console.log("Counters handleDelete", counterId);
     const updatedCounters = this.state.counters.filter(
       (dct) => dct.id != counterId
     );
+    this.setState({ counters: updatedCounters });
+  };
+
+  handleReset = () => {
+    const updatedCounters = this.state.counters.map((dct) => {
+      dct.value = 0;
+      return dct;
+    });
     this.setState({ counters: updatedCounters });
   };
 
@@ -73,11 +90,17 @@ class RowCounters extends Component {
       <React.Fragment>
         <div className="App">
           <header className="App-header">Row Counter</header>
-          <p>We will be back!</p>
+          <button
+            className="btn btn-primary btn-sm m-2"
+            onClick={this.handleReset}
+          >
+            Reset
+          </button>
           {this.state.counters.map((counter) => (
             <RowCounter
               key={counter.id}
               counter={counter}
+              onIncrement={this.handleIncrement}
               onDelete={this.handleDelete}
             >
               Counter #{counter.id}
