@@ -16,6 +16,8 @@ class RowCounter extends Component {
   // };
 
   render() {
+    const { counter, onIncrement, onDelete } = this.props;
+
     return (
       <div>
         {this.props.children}
@@ -23,13 +25,13 @@ class RowCounter extends Component {
           {this.formatCount()}
         </span>
         <button
-          onClick={() => this.props.onIncrement(this.props.counter)}
+          onClick={() => onIncrement(counter)}
           className="btn btn-secondary btn-sm"
         >
           Increment
         </button>
         <button
-          onClick={() => this.props.onDelete(this.props.counter.id)}
+          onClick={() => onDelete(counter.id)}
           className="btn btn-danger dtm-sm m-2"
         >
           Delete
@@ -45,7 +47,7 @@ class RowCounter extends Component {
 
   getBadgeClasses() {
     const { value } = this.props.counter;
-    let badgeClasses = "badge badge-pill m-2 ";
+    let badgeClasses = "badge m-2 ";
     badgeClasses += value === 0 ? "badge-warning" : "badge-primary";
     return badgeClasses;
   }

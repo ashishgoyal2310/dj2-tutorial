@@ -11,25 +11,22 @@ export const LoadingImage = () => (
   <img alt="loading" src={loaderSrc} height="100px" />
 );
 
-export class SimpleNavBar extends Component {
-  render() {
-    return (
-      <nav className="navbar navbar-light bg-light">
-        <a className="navbar-brand" href="/first">
-          First App
-        </a>
-        <a className="navbar-brand" href="/hooks">
-          Hooks
-        </a>
-        <a className="navbar-brand" href="/tvseries">
-          TV Series
-        </a>
-        <a className="navbar-brand" href="/rowcounter">
-          Row Counter
-        </a>
-      </nav>
-    );
-  }
-}
-
-export default SimpleNavBar;
+// stateless functional component
+export const SimpleNavBar = (props) => {
+  return (
+    <nav className="navbar navbar-light bg-light">
+      <a className="navbar-brand" href="/first">
+        First App
+      </a>
+      <a className="navbar-brand" href="/hooks">
+        Hooks
+      </a>
+      <a className="navbar-brand" href="/tvseries">
+        TV Series
+      </a>
+      <a className="navbar-brand" href="/rowcounter">
+        Row Counter
+      </a>
+    </nav>
+  );
+};
