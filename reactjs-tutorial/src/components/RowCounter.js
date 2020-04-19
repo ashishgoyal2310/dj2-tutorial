@@ -28,6 +28,12 @@ class RowCounter extends Component {
         >
           Increment
         </button>
+        <button
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+          className="btn btn-danger dtm-sm m-2"
+        >
+          Delete
+        </button>
       </div>
     );
   }
@@ -54,6 +60,14 @@ class RowCounters extends Component {
     tags: [],
   };
 
+  handleDelete = (counterId) => {
+    console.log("Counters handleDelete", counterId);
+    const updatedCounters = this.state.counters.filter(
+      (dct) => dct.id != counterId
+    );
+    this.setState({ counters: updatedCounters });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -61,7 +75,11 @@ class RowCounters extends Component {
           <header className="App-header">Row Counter</header>
           <p>We will be back!</p>
           {this.state.counters.map((counter) => (
-            <RowCounter key={counter.id} counter={counter}>
+            <RowCounter
+              key={counter.id}
+              counter={counter}
+              onDelete={this.handleDelete}
+            >
               Counter #{counter.id}
             </RowCounter>
           ))}
