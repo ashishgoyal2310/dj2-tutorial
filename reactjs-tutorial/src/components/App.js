@@ -1,15 +1,15 @@
 import React from "react";
 import Main from "./Main";
-import RowCounters from "./RowCounter";
+import { SimpleNavBar } from "./Loading";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">Welcome to ReactJs Project!!</header>
-      <div className="container">
+      <SimpleNavBar />
+      <main className="container">
         <Main />
-        <RowCounters />
-      </div>
+      </main>
       <p className="bg-color-custom">
         Currently using React Version | {React.version}
       </p>
