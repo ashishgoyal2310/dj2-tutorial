@@ -1,199 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="">
-      <meta name="author" content="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1,
+      shrink-to-fit=no"
+      />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
 
-      <title>Practice</title>
-      <style type="text/css">
-          
-    
+    <title>Practice</title>
+    <style type="text/css">
+      /* p::first-letter {
+        font-size: 2em;
+      }
 
-      </style>
-    </head>
-    <body>
-    
-      <div id='div1'>
-        Div with ID #div1
-      </div>    
-    
+      *::first-line {
+        color: olive;
+      } */
 
-      <script type="text/javascript">
-        // ---------- String Concat ----------
+      /* element as first child */
+      /* p:first-child {
+        color: red;
+      } */
 
-        // let fname = 'Ashish'
-        // let lname = 'Goyal'
-        // let age = prompt('Guess the age.')
-        // alert(`Hi ${fname} ${lname} of age  ${age}`);
+      /* element as first child inside particular element */
+      /* p a:first-child {
+        color: brown;
+        font-size: 1.2em;
+      } */
 
-        // ---------- function with default value argument ----------
+      * {
+        border: 1px solid goldenrod;
+      }
 
-        // function welcome(user='ashish', message='default msg'){
-        //   alert(`Hi ${user}. Your message is ${message}`)
-        // }
+      body {
+        border: 2px solid yellow;
+      }
 
-        // welcome('ash', 'hi');
-        // welcome();
+      /* Descendent combinator */
+      div a {
+        color: olive;
+      }
 
-        // ---------- Arror function ----------
+      /* parent child combinator */
+      div > a {
+        font-size: 1.4em;
+      }
 
-        // function greeting(message) {
-        //   return alert(`${message} everyone`);
-        // }
-        // let greeting = (message) => alert(`${message} everyone`);
-        // greeting('Good morning');
+      /* no space combinator */
+      p.cust {
+        background-color: lightpink;
+      }
 
-        // let greetingMulti = (arg1, arg2) => {
-        //   alert('Open console to check the error.');
-        //   if (!arg1) {
-        //     throw new Error('arg1 is required.')
-        //   }
+      hr {
+        border: 1px solid red;
+        border-width: 0.5em;
+      }
 
-        //   if (!arg2) {
-        //     throw new Error('arg2 is required.')
-        //   }
-        // }
-        // greetingMulti();
-
-        // ---------- `this` with Arror function ----------
-
-        // function sayHi(argument) {
-        //   // body...
-        // }
-        // console.log(this);
-
-        // let nepal = {
-        //   // add property
-        //   mountains: ['Mas1', 'Msd2', 'Mdf3'],
-        //   // add method
-        //   printWithDash: function() {
-        //     // setTimeout(function(){
-        //     //   document.getElementById('div1').innerHTML(  this.mountains.join(' - '));
-        //     // }, 3000);
-        //     setTimeout(() => {
-        //       document.getElementById('div1').innerHTML = this.mountains.join(' - ');
-        //     }, 3000);
-        //   }
-        // }
-        // nepal.printWithDash();
-
-        // ---------- Destructuring Object/Array ----------
-        
-        // let student = {
-        //   name: 'Ashish',
-        //   uid: '1234',
-        //   age: 25,
-        //   address: 'student address, CA, UMN, 30102'
-        // }        
-        // let {uid, name} = student
-        // console.log(uid + ' - ' + name)
-
-        // let funStudent1 = (student) => {
-        //   let {name, age} = student;
-        //   console.log(`Hi ${name}, your age is ${age}`);
-        // }
-        // funStudent1(student);
-
-        // let funStudentInArgs = ({name, age}) => {
-        //   console.log(`Hi ${name}, your age is ${age}`);
-        // }
-        // funStudentInArgs(student);
-
-        // let [,secondEle,,fourthEle] = ['hi', 'ashish', 'goyal', 'welcome'];
-        // console.log(secondEle + ' - ', fourthEle);
-
-        // // ---------- Restructuring ----------
-        // let name = 'Everest';
-        // let height = 8435;
-        // let output = function() {
-        //   console.log(`Mt. ${this.name} is ${this.height} meter tall`);
-        // }
-
-        // let outputArrow = () => console.log(`'this' contains the windows object therefore don't have 'this.height': ${this.height}`);
-
-        // let advClmbing = {name, height, output, outputArrow};
-        // console.log(advClmbing);
-        // console.log(advClmbing.output());
-        // console.log(advClmbing.outputArrow());
-
-        // let adventureClimbing = {
-        //   name: 'Everest',
-        //   height: 8435,
-        //   output: function() {
-        //     console.log(`Mt. ${this.name} is ${this.height} meter tall`);
-        //   },
-        //   // function can also be writter an
-        //   output2() {
-        //     console.log(`Mt. ${this.name} is ${this.height} meter tall`);
-        //   }
-        // }
-        // console.log('--------------------------')
-        // console.log(adventureClimbing.output());
-        // console.log(adventureClimbing.output2());
-
-        // // ---------- Spread and rest ----------
-        // let names = ['Raju', 'Malik', 'Rakesh', 'Sameer'];
-        // let moreNames = ['Ram', 'Ravan'];
-
-        // let student = {name: 'Aman', lname: 'Singh'}
-        // let studentInfo = {contact: 'email', address: 'test, test, TEST, 123123'}
-        
-        // var allNames = [...names, ...moreNames];
-        // var [first, ...rest] = allNames;
-        // console.log(`allNames: ${allNames} - first: ${first} - rest: ${rest}`)
-
-        // var studentDetail = {...student, ...studentInfo};
-        // var {contact, ...rest} = studentDetail;
-        // console.log(studentDetail, contact, rest)
+      p:nth-of-type(1) {text-align: left;}
+      p:nth-of-type(2) {text-align: right;}
+      p:nth-of-type(3) {text-align: center;}
+      p:nth-of-type(4) {text-align: justify;}
+      p:nth-of-type(5) {text-decoration: underline;}
+      p:nth-of-type(6) {text-decoration: overline;}
+      p:nth-of-type(7) {text-decoration: line-through;}
+      p:nth-of-type(8) > a {text-decoration: none; font-size: 2em;}
+      p:nth-of-type(9) {font-weight: bold;}
+      p:nth-of-type(10) {font-style: italic;}
+      p:nth-of-type(11) {text-transform: uppercase;}
+      p:nth-of-type(12) {text-transform: lowercase;}
+      p:nth-of-type(13) {text-transform: capitalize;}
+      /* font-size and line-height are set together i.e line height = 1.5 times of font size */
+      /* space between letter can also be set */
+      p:nth-of-type(14) {font-size: 30px; line-height: 1.5;}
 
 
-        // ---------- Classes and constructor ----------
-        // function Holiday(dest, days) {
-        //   console.log('inside Holiday function "this":', this);
-        //   this.dest = dest
-        //   this.days = days
-        // }
-        // Holiday.prototype.info = function() {
-        //   console.log(`${this.dest} takes ${this.days} days.`)
-        // }
-        // const india = new Holiday('India', '30');
-        // india.info();
+      p:nth-of-type(15) {display: inline; margin: 10px; padding: 10px;}
+      p:nth-of-type(16) {display: inline; margin: 10px; padding: 10px;}
+      p:nth-of-type(17) > a {display: block; margin: 10px; padding: 10px;}
+      p:nth-of-type(18) {display: inline-block; width:45%;}
+      p:nth-of-type(19) {display: inline-block; width:45%;}
+      p:nth-of-type(20) {text-decoration: line-through;}
+      p:nth-of-type(21) {text-decoration: line-through;}
+      p:nth-of-type(22) {text-decoration: line-through;}
+      p:nth-of-type(23) {text-decoration: line-through;}
+      p:nth-of-type(24) {text-decoration: line-through;}
+      p:nth-of-type(25) {text-decoration: line-through;}
+    </style>
+  </head>
+  <body>
+    <hr />
 
-        class Holiday {
-          constructor(dest, days) {
-            console.log('inside Holiday class "this":', this);
-            this.dest = dest
-            this.days = days
-          }
+    <h1>Heading...</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem similique
+      debitis accusamus labore tempora quos! Odit, esse. Officiis, excepturi
+      nobis! Possimus corporis ad ducimus cum expedita eveniet quo. Atque,
+      doloribus!
+    </p>
+    <p>
+      Autem harum expedita illum, asperiores doloribus quos ab iure quam vero
+      delectus voluptas magnam totam in accusamus reprehenderit quisquam,
+      ratione impedit distinctio. Sed sit facilis nobis delectus repellat? Ut,
+      adipisci?
+    </p>
+    <p>
+      Maxime et, placeat accusamus exercitationem cum nemo architecto quisquam
+      temporibus debitis est. Vero odio qui cum velit corporis obcaecati
+      architecto fugit! Sint provident repellendus placeat iure? Sed placeat
+      blanditiis odit.
+    </p>
+    <p>
+      Et nesciunt delectus doloribus! Dignissimos hic quod asperiores velit
+      ratione cumque doloribus magni fugit reiciendis quos animi corporis, ipsa
+      officiis in expedita iusto dolore quo eligendi totam est sequi nulla.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus nam,
+      ea distinctio nihil culpa reiciendis dolores amet a, possimus voluptatem
+      temporibus explicabo impedit. Doloribus sapiente obcaecati iure! Tempora,
+      accusantium eius. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Atque minus aliquid natus dolore culpa, ipsam reprehenderit quis
+      consequuntur architecto obcaecati quod sit voluptate amet dolor doloremque
+      praesentium ad unde expedita.
+    </p>
+    <p>
+      Praesentium aliquid quisquam, harum cum esse molestias perspiciatis neque?
+      Repellendus aliquam delectus provident veniam et tempore quibusdam, odio
+      saepe sunt esse dolores modi? Provident praesentium non, officia animi
+      molestias at!
+    </p>
+    <p>
+      Tempora, cum saepe corporis id voluptas sapiente molestiae veritatis?
+      Cumque ipsam minima commodi libero perspiciatis. Perspiciatis minus
+      similique, distinctio unde ratione aut iste quis animi fugiat commodi et
+      fugit eos.
+    </p>
+    <p>
+      Quisquam ad adipisci ipsum distinctio eum quia ex dolore. In temporibus
+      blanditiis deleniti. Animi veniam in vel facilis rem esse voluptatum
+      consectetur sint, architecto, est tenetur repudiandae doloremque culpa
+      nihil.
+    </p>
+    <p>
+      Fugit porro non omnis itaque assumenda commodi eius explicabo. Rem
+      quisquam modi obcaecati labore accusantium, eligendi animi fugiat id
+      repellat quo iusto nulla earum harum corporis doloribus pariatur officia
+      accusamus!
+      <a href="#">Some Link</a>
+    </p>
+    <p>
+      Et numquam eligendi quis vitae! Error cupiditate, praesentium qui
+      temporibus ab libero enim, deleniti itaque quaerat a dolorem commodi
+      exercitationem quas saepe optio fugit dignissimos, culpa aspernatur ad
+      esse repellat.
+    </p>
+    <p>
+      Non aliquam natus iure consequuntur quisquam facilis similique quasi
+      ducimus corrupti modi accusantium error accusamus quod odit maxime tempora
+      at labore illo temporibus incidunt, repudiandae dolores. Dolorum autem est
+      aliquid!
+    </p>
+    <p>
+      Obcaecati non laborum quos sequi unde at delectus beatae iste tempore
+      aliquid! Illo doloribus vel ab, eum enim doloremque iure, quod, labore
+      officiis quisquam minus laboriosam. Natus non dicta nostrum.
+    </p>
+    <p>
+      In tempora eum sint dolore amet aliquid harum quae ea velit praesentium
+      sequi et asperiores corrupti quod nam, impedit tempore repudiandae ipsum,
+      beatae reprehenderit dolorum quibusdam. Distinctio esse possimus
+      cupiditate.
+    </p>
+    <p>
+      Tenetur harum ipsam inventore placeat dolore. Error, veritatis distinctio?
+      Deleniti illo recusandae voluptatum minus dolorem tenetur aliquam aliquid
+      asperiores vitae optio, nulla, est cupiditate libero, autem adipisci sunt
+      suscipit commodi.
+    </p>
+    <p>
+      Tenetur, reiciendis pariatur dicta iusto vel a asperiores dolore nesciunt
+      natus eos minus sequi, labore dolor odit earum facilis delectus similique,
+      dignissimos minima alias nisi. Repellat, dolor dolorem. Dolorum, incidunt.
+    </p>
+    <h1>Heading...</h1>
+    <p>
+      Exercitationem illo consectetur ex distinctio repellendus aliquid,
+      similique tempore?
+    </p>
+    <p>
+      Pariatur omnis culpa odit possimus adipisci voluptates, sequi voluptatem,
+      enim consequuntur.
+    </p>
+    <p>
+      Quod accusantium dolor ut inventore beatae architecto hic dolorum dolore
+      harum, sit a magni neque quisquam labore aperiam accusamus ea provident
+      ipsum, fugiat suscipit error. Ratione est placeat soluta vitae.
+      <a href="#">Some Link 1 - inline block</a>
+      <a href="#">Some Link 2 - inline block</a>
+    </p>
+    <p>
+      Vero odit maiores sequi iste sunt quasi. Incidunt voluptatum, quasi
+      asperiores vero quas, error necessitatibus dolor explicabo ipsum mollitia
+      veritatis sunt magnam quos laboriosam aperiam repellendus deserunt, illo
+      blanditiis veniam.
+    </p>
+    <p>
+      Blanditiis animi tempora voluptatibus? Asperiores deleniti ut sit vel
+      assumenda praesentium maxime voluptate, incidunt laboriosam voluptates hic
+      sunt voluptas aperiam tempore dolorem quam minima. Qui, eaque iste!
+      Architecto, porro vitae.
+    </p>
+    <p>
+      Quasi vitae commodi dolor quidem deleniti labore modi quo quibusdam at
+      officiis magnam soluta eos officia ab qui saepe, iusto voluptas eaque!
+      Mollitia ullam, illo dolorum laboriosam eum reprehenderit. Corrupti?
+    </p>
+    <p>
+      Ex modi autem nihil assumenda. Eum, et hic soluta delectus a, iste error
+      aut dolores voluptatibus facilis praesentium. Quibusdam ipsum harum rem
+      distinctio saepe at quasi perferendis nostrum eius corrupti.
+    </p>
+    <p>
+      Voluptatem atque placeat error dolorum vel alias incidunt fuga nisi, amet
+      laborum aspernatur, praesentium laudantium esse mollitia quia voluptas
+      ducimus veniam quas earum nobis beatae. Impedit doloribus consequatur
+      eveniet sed?
+    </p>
+    <p>
+      Cupiditate aliquam officia deserunt, itaque obcaecati deleniti eligendi ex
+      consequuntur in nisi velit molestias amet dolor fuga nihil accusamus
+      ducimus ullam neque repudiandae recusandae! Dignissimos consequatur
+      possimus unde nihil quo.
+    </p>
+    <p>
+      Aperiam magni molestiae enim? Sunt, alias ratione commodi eligendi maiores
+      est mollitia enim rerum dignissimos, libero sint ipsam! Pariatur velit,
+      quasi in aspernatur itaque quaerat dolorum porro error possimus alias!
+    </p>
+    <p>
+      Exercitationem odit at, voluptatum unde quasi perferendis rerum, magni
+      ullam tempore enim nulla dolor pariatur quas! Repellat tenetur ullam
+      molestias placeat cum, fuga eligendi dolor! Eius quos quas officia minima!
+    </p>
 
-          info() {
-            console.log(`${this.dest} takes ${this.days} days.`)
-          }
+    <hr />
 
-        }
-        const indiaTrip = new Holiday('Delhi, India', 30);
-        indiaTrip.info();
+    <div style="color: olive;">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum porro
+      voluptatibus, quas accusantium cumque inventore asperiores, nam ratione,
+      distinctio sequi eius explicabo perferendis. Dolorem voluptatibus maxime
+      inventore dolore? Ullam, repellendus.
+      <p style="color: darkred;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque quae non
+        aperiam aut maiores eligendi recusandae deserunt, consequatur sunt
+        tempore vel? Cum, illum quaerat harum nemo nisi odio? Dolor, aut.
+        <span style="color: initial;">
+          span with some text
+        </span>
+      </p>
+    </div>
 
-        // Extent existing class
-        class Expendition extends Holiday {
-          constructor(dest, days, gear) {
-            super(dest, days);
-            console.log('inside extended Expendition class "this":', this);
-            this.gear = gear;
-          }
+    <hr />
 
-          info() {
-            super.info()
-            console.log(`Bring your ${this.gear.join(' and your ')}`) 
-          }
-        }
+    <div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+      dolorum, ea aut amet deserunt aspernatur fuga vero dolor harum perferendis
+      fugiat labore soluta, eligendi repudiandae, eaque at voluptate voluptatum.
+      Veritatis!
+      <p class="cust">
+        para 1 (firsr child of DIV)
+        <a href="#">Link inside PARA of DIV</a>
+      </p>
+      <p>
+        para 2 (second child of DIV)
+      </p>
+      <a href="#">Link inside DIV</a>
+    </div>
 
-        const newTripWithGears = new Expendition('Delhi, India', 30, ['Camera', 'Sunglasses', 'Boots', 'Flags']);
-        newTripWithGears.info();
+    <div class="cust">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio distinctio
+      at doloribus, excepturi deserunt ex eaque aliquam ipsum, aliquid id
+      dignissimos qui dolore asperiores. Corporis totam doloribus impedit
+      eligendi cupiditate?
+      <p>
+        para 3 (first child of DIV)
+      </p>
+      <p class="cust">
+        para 4 (second child of DIV)
+        <a href="#">Link inside PARA of DIV</a>
+      </p>
+      <a href="#">Link inside DIV (third child of DIV)</a>
+    </div>
+    <p>
+      para 5
+      <a href="#">Link inside PARA</a>
+    </p>
+    <a href="#"> Some Link</a>
 
-      </script>
-    </body>
+    <hr />
+
+    <h3>Block Elelment</h3>
+    <h4>Heading</h4>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quod nemo
+      natus incidunt minima sit velit dicta quo corrupti eum, consectetur
+      impedit. Corrupti libero tempore quibusdam consequuntur sint dolorum ad?
+    </p>
+    <div>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et labore
+      tenetur suscipit libero obcaecati at neque consectetur quos laboriosam
+      nesciunt quasi velit, aliquam ipsa voluptatem nam! Harum recusandae
+      nostrum facere?
+    </div>
+    <ul>
+      Unordered List
+      <li>Unordered list 1</li>
+      <li>Unordered List 2</li>
+    </ul>
+    <ol>
+      Ordered List
+      <li>Ordered list 1</li>
+      <li>Ordered List 2</li>
+    </ol>
+    <table border="1">
+      <thead>
+        <tr>
+          <th colspan="2">Table</th>
+        </tr>
+        <tr>
+          <th>Head1</th>
+          <th>Head2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>data 1</td>
+          <td>data 2</td>
+        </tr>
+      </tbody>
+    </table>
+    <form action="">
+      <label for="">Form is Block Element. Label, Input and Textarea are Inline
+        Elements</label><br />
+      <label for="fname">First Name: </label>
+      <input type="text" id="fname" />
+      <label for="lname">Last Name: </label>
+      <input type="text" id="lname" />
+      <label for="desc">Description: </label>
+      <textarea name="description" id="desc" cols="30" rows="2"></textarea>
+    </form>
+
+    <hr />
+
+    <h3>Inline Elelment</h3>
+    <span>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam
+      perferendis ab quos illo excepturi voluptates voluptate cum id repudiandae
+      et, enim harum facilis inventore accusamus numquam nulla aliquid
+      reiciendis provident.
+    </span>
+    <a href="#">Anchor Tag</a>
+    <img src="" alt="Image" /> <img src="" alt="Image2" />
+    <label for="">Dropdown Label: </label>
+    <select name="" id="">
+      <option value="">optioin 1</option>
+      <option value="">option 2</option>
+    </select>
+    <label for="">Radio Label:
+      <input type="radio" name="grp1" id="" />
+      <input type="radio" name="grp1" id="" checked />
+      <input type="radio" name="grp1" id="" />
+    </label>
+
+    <h3>Inline Block Element</h3>
+
+    <div id="div1">
+      Div with ID #div1
+    </div>
+    <script type="text/javascript">
+      // ---------- String Concat ----------
+
+      // let fname = 'Ashish'
+      // let lname = 'Goyal'
+      // let age = prompt('Guess the age.')
+      // alert(`Hi ${fname} ${lname} of age  ${age}`);
+
+      // ---------- function with default value argument ----------
+
+      // function welcome(user='ashish', message='default msg'){
+      //   alert(`Hi ${user}. Your message is ${message}`)
+      // }
+
+      // welcome('ash', 'hi');
+      // welcome();
+
+      // ---------- Arror function ----------
+
+      // function greeting(message) {
+      //   return alert(`${message} everyone`);
+      // }
+      // let greeting = (message) => alert(`${message} everyone`);
+      // greeting('Good morning');
+
+      // let greetingMulti = (arg1, arg2) => {
+      //   alert('Open console to check the error.');
+      //   if (!arg1) {
+      //     throw new Error('arg1 is required.')
+      //   }
+
+      //   if (!arg2) {
+      //     throw new Error('arg2 is required.')
+      //   }
+      // }
+      // greetingMulti();
+
+      // ---------- `this` with Arror function ----------
+
+      // function sayHi(argument) {
+      //   // body...
+      // }
+      // console.log(this);
+
+      // let nepal = {
+      //   // add property
+      //   mountains: ['Mas1', 'Msd2', 'Mdf3'],
+      //   // add method
+      //   printWithDash: function() {
+      //     // setTimeout(function(){
+      //     //   document.getElementById('div1').innerHTML(  this.mountains.join(' - '));
+      //     // }, 3000);
+      //     setTimeout(() => {
+      //       document.getElementById('div1').innerHTML = this.mountains.join(' - ');
+      //     }, 3000);
+      //   }
+      // }
+      // nepal.printWithDash();
+
+      // ---------- Destructuring Object/Array ----------
+      // let student = {
+      //   name: 'Ashish',
+      //   uid: '1234',
+      //   age: 25,
+      //   address: 'student address, CA, UMN, 30102'
+      // }
+      // let {uid, name} = student
+      // console.log(uid + ' - ' + name)
+
+      // let funStudent1 = (student) => {
+      //   let {name, age} = student;
+      //   console.log(`Hi ${name}, your age is ${age}`);
+      // }
+      // funStudent1(student);
+
+      // let funStudentInArgs = ({name, age}) => {
+      //   console.log(`Hi ${name}, your age is ${age}`);
+      // }
+      // funStudentInArgs(student);
+
+      // let [,secondEle,,fourthEle] = ['hi', 'ashish', 'goyal', 'welcome'];
+      // console.log(secondEle + ' - ', fourthEle);
+
+      // // ---------- Restructuring ----------
+      // let name = 'Everest';
+      // let height = 8435;
+      // let output = function() {
+      //   console.log(`Mt. ${this.name} is ${this.height} meter tall`);
+      // }
+
+      // let outputArrow = () => console.log(`'this' contains the windows object therefore don't have 'this.height': ${this.height}`);
+
+      // let advClmbing = {name, height, output, outputArrow};
+      // console.log(advClmbing);
+      // console.log(advClmbing.output());
+      // console.log(advClmbing.outputArrow());
+
+      // let adventureClimbing = {
+      //   name: 'Everest',
+      //   height: 8435,
+      //   output: function() {
+      //     console.log(`Mt. ${this.name} is ${this.height} meter tall`);
+      //   },
+      //   // function can also be writter an
+      //   output2() {
+      //     console.log(`Mt. ${this.name} is ${this.height} meter tall`);
+      //   }
+      // }
+      // console.log('--------------------------')
+      // console.log(adventureClimbing.output());
+      // console.log(adventureClimbing.output2());
+
+      // // ---------- Spread and rest ----------
+      // let names = ['Raju', 'Malik', 'Rakesh', 'Sameer'];
+      // let moreNames = ['Ram', 'Ravan'];
+
+      // let student = {name: 'Aman', lname: 'Singh'}
+      // let studentInfo = {contact: 'email', address: 'test, test, TEST, 123123'}
+
+      // var allNames = [...names, ...moreNames];
+      // var [first, ...rest] = allNames;
+      // console.log(`allNames: ${allNames} - first: ${first} - rest: ${rest}`)
+
+      // var studentDetail = {...student, ...studentInfo};
+      // var {contact, ...rest} = studentDetail;
+      // console.log(studentDetail, contact, rest)
+
+      // ---------- Classes and constructor ----------
+      // function Holiday(dest, days) {
+      //   console.log('inside Holiday function "this":', this);
+      //   this.dest = dest
+      //   this.days = days
+      // }
+      // Holiday.prototype.info = function() {
+      //   console.log(`${this.dest} takes ${this.days} days.`)
+      // }
+      // const india = new Holiday('India', '30');
+      // india.info();
+
+      // class Holiday {
+      //   constructor(dest, days) {
+      //     console.log('inside Holiday class "this":', this);
+      //     this.dest = dest
+      //     this.days = days
+      //   }
+
+      //   info() {
+      //     console.log(`${this.dest} takes ${this.days} days.`)
+      //   }
+
+      // }
+      // const indiaTrip = new Holiday('Delhi, India', 30);
+      // indiaTrip.info();
+
+      // // Extent existing class
+      // class Expendition extends Holiday {
+      //   constructor(dest, days, gear) {
+      //     super(dest, days);
+      //     console.log('inside extended Expendition class "this":', this);
+      //     this.gear = gear;
+      //   }
+
+      //   info() {
+      //     super.info()
+      //     console.log(`Bring your ${this.gear.join(' and your ')}`)
+      //   }
+      // }
+
+      // const newTripWithGears = new Expendition('Delhi, India', 30, ['Camera', 'Sunglasses', 'Boots', 'Flags']);
+      // newTripWithGears.info();
+    </script>
+  </body>
 </html>
