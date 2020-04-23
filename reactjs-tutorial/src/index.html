@@ -1,554 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1,
-      shrink-to-fit=no"
-      />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
 
-    <title>Practice</title>
-    <style type="text/css">
-      /* p::first-letter {
-        font-size: 2em;
-      }
-
-      *::first-line {
-        color: olive;
-      } */
-
-      /* element as first child */
-      /* p:first-child {
-        color: red;
-      } */
-
-      /* element as first child inside particular element */
-      /* p a:first-child {
-        color: brown;
-        font-size: 1.2em;
-      } */
-
-      * {
+    <!-- REF: https://fontawesome.com/icons?d=gallery -->
+    <!-- REF: https://mastery.games/post/the-difference-between-width-and-flex-basis/ -->
+    <!-- REF: file:///C:/Users/CSBM7002/Downloads/dj2-tutorial/reactjs-tutorial/src/index.html# -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <title>Document</title>
+    <style>
+      /* * {
         border: 1px solid goldenrod;
       }
+      .body-outer-container {
+        border: 5px dashed crimson;
+      } */
 
       body {
-        border: 2px solid yellow;
+        font-family: Segoe UI, Roboto, "Helvetica Neue", sans-serif;
+        background-image: url('./assets/cover1.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-color: whitesmoke;
       }
 
-      /* Descendent combinator */
-      div a {
+      .navbar {
+        background-color: rgba( 64, 144, 172, 0.65 );
+        color: #fff;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .navbar > * {
+        width: 30%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .navbar .menu {
+        justify-content: flex-start;
+      }
+
+      .navbar .app-title {
+        justify-content: space-around;
+      }
+
+      .navbar .actions {
+        justify-content: flex-end;
+      }
+
+      .navbar .menu ul {
+        margin: 5px 0px;
+        padding: 0px 0px;
+      }
+
+      .navbar .menu ul li {
+        margin: 0px 0px;
+      }
+
+      .navbar .actions span,
+      .navbar .menu li input,
+      .navbar .menu li {
+        background-color: crimson;
+      }
+
+      .navbar .actions span:hover,
+      .navbar .menu li input:hover,
+      .navbar .menu li:hover {
+        background-color: olive;
+      }
+
+      .navbar .actions span,
+      .navbar .menu li {
+        display: inline;
+        padding: 5px;
+        margin: 0px 2px;
+      }
+
+      .navbar .app-title {
+        font-size: 2em;
+        font-family: 'Times New Roman', Times, serif;
+      }
+
+      .navbar .menu li.search-input {
+        padding: 0px;
+      }
+
+      .navbar .menu li input:focus {
+        background-color: #fff;
+      }
+
+      .navbar .menu li.search-input input {
+        width: 120px;
+        height: 29px;
+        font-size: 14px;
+        outline: none;
+        border: none;
+      }
+
+      .sub-heading {
+        background-color: rgba(255, 255, 255, 0.3);
+        color: #fff;
+        padding: 5px 15px;
+      }
+
+      /* START Make div under div scrollable at x-axis */
+      .body-outer-container {
+        color: #fff;
+        overflow-x: auto;
+        min-height: 500px;
+      }
+      .body-outer-container > .body-container,
+      .body-outer-container > .body-container-two,
+      .body-outer-container > div {
+        width: 200%;
+        margin: 10px 0px;
+      }
+      /* END Make div under div scrollable at x-axis */
+
+      /* START make child div as inline-block of fixed height and auto fill the .body-container space using flex=1  */
+      .body-container {
+        display: flex;
+        justify-content: space-around;
+        /* align-items:  baseline; */
+      }
+      .body-container > div {
+        display: inline-block;
+        flex: 1;
+      }
+
+      .body-container-two {
+        display: flex;
+        /* justify-content: flex-start; */
+        align-items: baseline;
+      }
+      .body-container-two > div {
+        display: inline-block;
+        flex-basis: 200px;
+      }
+
+      /* END make child div as inline-block of fixed height and auto fill the .body-container space using flex=1  */
+
+      .body-container > div,
+      .body-container-two > div {
+        background-color: rgba( 240, 240, 240, 0.9 );
+        color: #000;
+        margin: 0px 5px;
+        padding: 5px 5px;
+        max-height: 250px;
+        overflow: auto;
+        border-radius: 5px;
+      }
+
+      .body-container-two > div > * {
+        margin: 0px 5px 10px 5px;
+      }
+
+      .card-title {
+        font-weight: bold;
+      }
+      .card-title > span:nth-of-type(2) {
+        float: inline-end;
+      }
+
+      .input-noneditable {
+        font-size: 14px;
+        background-color: #fff;
+        border-radius: 3px;
+        padding: 5px;
+      }
+
+      .input-noneditable:hover {
+        background-color: olive;
+      }
+
+      .input-noneditable:hover i {
+        visibility: visible;
+      }
+
+      .input-noneditable i {
+        float: right;
+        visibility: hidden;
+      }
+
+      .card-add a {
+        text-decoration: none;
+        color: initial;
+      }
+
+      .card-add a:hover {
         color: olive;
       }
 
-      /* parent child combinator */
-      div > a {
-        font-size: 1.4em;
+      .card-add button.btn-cancel {
+        background-color: crimson;
+      }
+      .card-add button.btn-add {
+        background-color: olive;
+      }
+      .card-add button:hover,
+      .card-add button i:hover {
+        background-color: grey;
       }
 
-      /* no space combinator */
-      p.cust {
-        background-color: lightpink;
-      }
-
-      hr {
-        border: 1px solid red;
-        border-width: 0.5em;
-      }
-
-      p:nth-of-type(1) {text-align: left;}
-      p:nth-of-type(2) {text-align: right;}
-      p:nth-of-type(3) {text-align: center;}
-      p:nth-of-type(4) {text-align: justify;}
-      p:nth-of-type(5) {text-decoration: underline;}
-      p:nth-of-type(6) {text-decoration: overline;}
-      p:nth-of-type(7) {text-decoration: line-through;}
-      p:nth-of-type(8) > a {text-decoration: none; font-size: 2em;}
-      p:nth-of-type(9) {font-weight: bold;}
-      p:nth-of-type(10) {font-style: italic;}
-      p:nth-of-type(11) {text-transform: uppercase;}
-      p:nth-of-type(12) {text-transform: lowercase;}
-      p:nth-of-type(13) {text-transform: capitalize;}
-      /* font-size and line-height are set together i.e line height = 1.5 times of font size */
-      /* space between letter can also be set */
-      p:nth-of-type(14) {font-size: 30px; line-height: 1.5;}
-
-
-      p:nth-of-type(15) {display: inline; margin: 10px; padding: 10px;}
-      p:nth-of-type(16) {display: inline; margin: 10px; padding: 10px;}
-      p:nth-of-type(17) > a {display: block; margin: 10px; padding: 10px;}
-      p:nth-of-type(18) {display: inline-block; width:45%;}
-      p:nth-of-type(19) {display: inline-block; width:45%;}
-      p:nth-of-type(20) {text-decoration: line-through;}
-      p:nth-of-type(21) {text-decoration: line-through;}
-      p:nth-of-type(22) {text-decoration: line-through;}
-      p:nth-of-type(23) {text-decoration: line-through;}
-      p:nth-of-type(24) {text-decoration: line-through;}
-      p:nth-of-type(25) {text-decoration: line-through;}
     </style>
   </head>
   <body>
-    <hr />
 
-    <h1>Heading...</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem similique
-      debitis accusamus labore tempora quos! Odit, esse. Officiis, excepturi
-      nobis! Possimus corporis ad ducimus cum expedita eveniet quo. Atque,
-      doloribus!
-    </p>
-    <p>
-      Autem harum expedita illum, asperiores doloribus quos ab iure quam vero
-      delectus voluptas magnam totam in accusamus reprehenderit quisquam,
-      ratione impedit distinctio. Sed sit facilis nobis delectus repellat? Ut,
-      adipisci?
-    </p>
-    <p>
-      Maxime et, placeat accusamus exercitationem cum nemo architecto quisquam
-      temporibus debitis est. Vero odio qui cum velit corporis obcaecati
-      architecto fugit! Sint provident repellendus placeat iure? Sed placeat
-      blanditiis odit.
-    </p>
-    <p>
-      Et nesciunt delectus doloribus! Dignissimos hic quod asperiores velit
-      ratione cumque doloribus magni fugit reiciendis quos animi corporis, ipsa
-      officiis in expedita iusto dolore quo eligendi totam est sequi nulla.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus nam,
-      ea distinctio nihil culpa reiciendis dolores amet a, possimus voluptatem
-      temporibus explicabo impedit. Doloribus sapiente obcaecati iure! Tempora,
-      accusantium eius. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Atque minus aliquid natus dolore culpa, ipsam reprehenderit quis
-      consequuntur architecto obcaecati quod sit voluptate amet dolor doloremque
-      praesentium ad unde expedita.
-    </p>
-    <p>
-      Praesentium aliquid quisquam, harum cum esse molestias perspiciatis neque?
-      Repellendus aliquam delectus provident veniam et tempore quibusdam, odio
-      saepe sunt esse dolores modi? Provident praesentium non, officia animi
-      molestias at!
-    </p>
-    <p>
-      Tempora, cum saepe corporis id voluptas sapiente molestiae veritatis?
-      Cumque ipsam minima commodi libero perspiciatis. Perspiciatis minus
-      similique, distinctio unde ratione aut iste quis animi fugiat commodi et
-      fugit eos.
-    </p>
-    <p>
-      Quisquam ad adipisci ipsum distinctio eum quia ex dolore. In temporibus
-      blanditiis deleniti. Animi veniam in vel facilis rem esse voluptatum
-      consectetur sint, architecto, est tenetur repudiandae doloremque culpa
-      nihil.
-    </p>
-    <p>
-      Fugit porro non omnis itaque assumenda commodi eius explicabo. Rem
-      quisquam modi obcaecati labore accusantium, eligendi animi fugiat id
-      repellat quo iusto nulla earum harum corporis doloribus pariatur officia
-      accusamus!
-      <a href="#">Some Link</a>
-    </p>
-    <p>
-      Et numquam eligendi quis vitae! Error cupiditate, praesentium qui
-      temporibus ab libero enim, deleniti itaque quaerat a dolorem commodi
-      exercitationem quas saepe optio fugit dignissimos, culpa aspernatur ad
-      esse repellat.
-    </p>
-    <p>
-      Non aliquam natus iure consequuntur quisquam facilis similique quasi
-      ducimus corrupti modi accusantium error accusamus quod odit maxime tempora
-      at labore illo temporibus incidunt, repudiandae dolores. Dolorum autem est
-      aliquid!
-    </p>
-    <p>
-      Obcaecati non laborum quos sequi unde at delectus beatae iste tempore
-      aliquid! Illo doloribus vel ab, eum enim doloremque iure, quod, labore
-      officiis quisquam minus laboriosam. Natus non dicta nostrum.
-    </p>
-    <p>
-      In tempora eum sint dolore amet aliquid harum quae ea velit praesentium
-      sequi et asperiores corrupti quod nam, impedit tempore repudiandae ipsum,
-      beatae reprehenderit dolorum quibusdam. Distinctio esse possimus
-      cupiditate.
-    </p>
-    <p>
-      Tenetur harum ipsam inventore placeat dolore. Error, veritatis distinctio?
-      Deleniti illo recusandae voluptatum minus dolorem tenetur aliquam aliquid
-      asperiores vitae optio, nulla, est cupiditate libero, autem adipisci sunt
-      suscipit commodi.
-    </p>
-    <p>
-      Tenetur, reiciendis pariatur dicta iusto vel a asperiores dolore nesciunt
-      natus eos minus sequi, labore dolor odit earum facilis delectus similique,
-      dignissimos minima alias nisi. Repellat, dolor dolorem. Dolorum, incidunt.
-    </p>
-    <h1>Heading...</h1>
-    <p>
-      Exercitationem illo consectetur ex distinctio repellendus aliquid,
-      similique tempore?
-    </p>
-    <p>
-      Pariatur omnis culpa odit possimus adipisci voluptates, sequi voluptatem,
-      enim consequuntur.
-    </p>
-    <p>
-      Quod accusantium dolor ut inventore beatae architecto hic dolorum dolore
-      harum, sit a magni neque quisquam labore aperiam accusamus ea provident
-      ipsum, fugiat suscipit error. Ratione est placeat soluta vitae.
-      <a href="#">Some Link 1 - inline block</a>
-      <a href="#">Some Link 2 - inline block</a>
-    </p>
-    <p>
-      Vero odit maiores sequi iste sunt quasi. Incidunt voluptatum, quasi
-      asperiores vero quas, error necessitatibus dolor explicabo ipsum mollitia
-      veritatis sunt magnam quos laboriosam aperiam repellendus deserunt, illo
-      blanditiis veniam.
-    </p>
-    <p>
-      Blanditiis animi tempora voluptatibus? Asperiores deleniti ut sit vel
-      assumenda praesentium maxime voluptate, incidunt laboriosam voluptates hic
-      sunt voluptas aperiam tempore dolorem quam minima. Qui, eaque iste!
-      Architecto, porro vitae.
-    </p>
-    <p>
-      Quasi vitae commodi dolor quidem deleniti labore modi quo quibusdam at
-      officiis magnam soluta eos officia ab qui saepe, iusto voluptas eaque!
-      Mollitia ullam, illo dolorum laboriosam eum reprehenderit. Corrupti?
-    </p>
-    <p>
-      Ex modi autem nihil assumenda. Eum, et hic soluta delectus a, iste error
-      aut dolores voluptatibus facilis praesentium. Quibusdam ipsum harum rem
-      distinctio saepe at quasi perferendis nostrum eius corrupti.
-    </p>
-    <p>
-      Voluptatem atque placeat error dolorum vel alias incidunt fuga nisi, amet
-      laborum aspernatur, praesentium laudantium esse mollitia quia voluptas
-      ducimus veniam quas earum nobis beatae. Impedit doloribus consequatur
-      eveniet sed?
-    </p>
-    <p>
-      Cupiditate aliquam officia deserunt, itaque obcaecati deleniti eligendi ex
-      consequuntur in nisi velit molestias amet dolor fuga nihil accusamus
-      ducimus ullam neque repudiandae recusandae! Dignissimos consequatur
-      possimus unde nihil quo.
-    </p>
-    <p>
-      Aperiam magni molestiae enim? Sunt, alias ratione commodi eligendi maiores
-      est mollitia enim rerum dignissimos, libero sint ipsam! Pariatur velit,
-      quasi in aspernatur itaque quaerat dolorum porro error possimus alias!
-    </p>
-    <p>
-      Exercitationem odit at, voluptatum unde quasi perferendis rerum, magni
-      ullam tempore enim nulla dolor pariatur quas! Repellat tenetur ullam
-      molestias placeat cum, fuga eligendi dolor! Eius quos quas officia minima!
-    </p>
-
-    <hr />
-
-    <div style="color: olive;">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum porro
-      voluptatibus, quas accusantium cumque inventore asperiores, nam ratione,
-      distinctio sequi eius explicabo perferendis. Dolorem voluptatibus maxime
-      inventore dolore? Ullam, repellendus.
-      <p style="color: darkred;">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque quae non
-        aperiam aut maiores eligendi recusandae deserunt, consequatur sunt
-        tempore vel? Cum, illum quaerat harum nemo nisi odio? Dolor, aut.
-        <span style="color: initial;">
-          span with some text
-        </span>
-      </p>
+    <div class="navbar">
+      <div class="menu">
+        <ul>
+          <li><i class="fas fa-home"></i></li>
+          <li><i class="fas fa-th-list"></i> Boards</i></li>
+          <li class="search-input"><input type="text" class="search"></li>
+        </ul>
+      </div>
+      <div class="app-title">
+        Title
+      </div>
+      <div class="actions">
+        <span><i class="fas fa-plus"></i></span>
+        <span><i class="fas fa-user"></i></span>
+      </div>
     </div>
 
-    <hr />
-
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-      dolorum, ea aut amet deserunt aspernatur fuga vero dolor harum perferendis
-      fugiat labore soluta, eligendi repudiandae, eaque at voluptate voluptatum.
-      Veritatis!
-      <p class="cust">
-        para 1 (firsr child of DIV)
-        <a href="#">Link inside PARA of DIV</a>
-      </p>
-      <p>
-        para 2 (second child of DIV)
-      </p>
-      <a href="#">Link inside DIV</a>
+    <div class="sub-heading">
+      Sub Heading
     </div>
+    <div class="body-outer-container">
+      <div class="body-container">
+        <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi molestiae qui repellat iusto, illo natus mollitia impedit consequuntur enim nihil tempora rem. Praesentium fugiat inventore eaque autem minus perspiciatis consequatur.</div>
+        <div>
+          Eveniet exercitationem earum quos rerum alias tempore id cupiditate dolorem praesentium harum. Possimus reiciendis reprehenderit similique, natus eligendi repellat incidunt porro nostrum, neque modi fuga quidem optio nam aspernatur voluptatum?
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores sint esse ipsa laborum ad recusandae natus numquam quibusdam voluptas iusto nesciunt voluptatem ab suscipit distinctio, quae ea molestiae explicabo tempora.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti neque impedit id quasi quidem consectetur dicta fugiat maxime pariatur rerum at quia, eius natus recusandae exercitationem, velit laudantium? Labore, exercitationem.
+        </div>
+        <div>Nesciunt beatae dolorem sunt eum quasi, eligendi nemo cupiditate! Dignissimos, totam. Sint at pariatur laboriosam repellat maxime aspernatur placeat recusandae architecto est sit. Quos, totam consectetur? Tempora placeat consequuntur nulla.</div>
+        <div>Laborum sunt ipsum corporis soluta tempora. Ipsam quo doloribus asperiores impedit, quaerat at, rerum veritatis animi nihil officiis aliquid porro optio error distinctio ex nemo maiores deserunt molestiae nesciunt quisquam.</div>
+        <div>Libero, numquam dolore. Harum odio iusto iste dignissimos necessitatibus blanditiis culpa deserunt, accusantium doloribus perspiciatis mollitia rem ratione quas nisi placeat reprehenderit alias enim perferendis eum nobis obcaecati ut? Assumenda?</div>
+        <div>Sunt soluta commodi deleniti nostrum suscipit natus porro libero corporis blanditiis ut dolore optio, accusantium doloribus esse dolorem rem! Nulla eos autem modi quaerat rerum labore commodi reprehenderit ex molestiae.</div>
+        <div>Esse possimus qui porro deleniti repellendus iste atque consequuntur expedita earum neque minus fugiat quos voluptate, ducimus quasi natus eaque laborum nam! Necessitatibus, consequatur commodi optio labore est voluptatem magnam!</div>
+        <div>Et eos ea cupiditate, architecto illum cum odio omnis facilis quisquam modi voluptas ex tempora necessitatibus iste beatae quibusdam sunt reiciendis eligendi asperiores ipsam explicabo. Expedita deleniti praesentium nisi at!</div>
+        <div>Enim expedita, quisquam porro possimus quaerat inventore minus laboriosam temporibus cumque. In tenetur unde rerum libero optio suscipit illo sequi debitis expedita laborum asperiores aspernatur, ut magnam, at, voluptatum consectetur.</div>
+        <div>Neque possimus, quod necessitatibus corporis quo ratione alias veritatis labore numquam atque delectus aspernatur quisquam vitae assumenda, harum pariatur. Minima adipisci dolorem, velit placeat nostrum alias tempora voluptatibus. At, quasi.</div>
+      </div>
 
-    <div class="cust">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio distinctio
-      at doloribus, excepturi deserunt ex eaque aliquam ipsum, aliquid id
-      dignissimos qui dolore asperiores. Corporis totam doloribus impedit
-      eligendi cupiditate?
-      <p>
-        para 3 (first child of DIV)
-      </p>
-      <p class="cust">
-        para 4 (second child of DIV)
-        <a href="#">Link inside PARA of DIV</a>
-      </p>
-      <a href="#">Link inside DIV (third child of DIV)</a>
+      <div class="xyz">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus iure itaque mollitia sunt et animi laboriosam, consequatur, optio quas esse error tempore fugit sit eveniet amet non libero odit aperiam.
+        Consequuntur nam repudiandae, quidem qui adipisci perspiciatis aliquam autem sunt quos exercitationem voluptate inventore dignissimos non similique velit, amet eveniet dolore neque esse ab facilis perferendis. Sequi necessitatibus tempora veniam.
+      </div>
+
+      <div class="body-container-two">
+        <div>
+          <div class="card-title">
+            <span>To Do</span>
+            <span>...</span>
+          </div>
+          <div class="input-noneditable">
+            PlaceHolder <i class="fas fa-pencil-alt pointer"></i>
+          </div>
+          <div class="input-noneditable">
+            PlaceHolder <i class="fas fa-pencil-alt pointer"></i>
+          </div>
+          <div class="card-add">
+            <a href="#"><i class="fas fa-plus"></i> add another</a>
+          </div>
+        </div>
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum incidunt veritatis voluptatibus, amet asperiores, quia deserunt soluta numquam delectus fugit, culpa modi voluptas odio. Officiis autem dolor laborum non esse.
+        </div>
+        <div>
+          <div class="card-title">
+            <span>Testing/Verifying</span>
+            <span>...</span>
+          </div>
+          <div class="input-noneditable">
+            PlaceHolder <i class="fas fa-pencil-alt pointer"></i>
+          </div>
+          <div class="card-add">
+            <button class="btn-add"><i class="fas fa-2x fa-plus"></i></button>
+            <button class="btn-cancel"><i class="fas fa-2x fa-times"></i></button>
+          </div>
+        </div>
+        <div>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui explicabo delectus corporis tenetur, ab sequi soluta ducimus dolorum deserunt, aperiam nam obcaecati sapiente architecto ratione quis quidem aut. Esse, magni!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit natus enim id dolor quidem sunt doloribus mollitia in laudantium commodi magni, consectetur ipsum quia, facilis quod sit fugiat reiciendis eius.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, suscipit natus incidunt cum esse odit quis illo asperiores vitae earum dignissimos, quo iste animi aut tempora pariatur sit error sed!
+        </div>
+      </div>
     </div>
-    <p>
-      para 5
-      <a href="#">Link inside PARA</a>
-    </p>
-    <a href="#"> Some Link</a>
-
-    <hr />
-
-    <h3>Block Elelment</h3>
-    <h4>Heading</h4>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum quod nemo
-      natus incidunt minima sit velit dicta quo corrupti eum, consectetur
-      impedit. Corrupti libero tempore quibusdam consequuntur sint dolorum ad?
-    </p>
-    <div>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et labore
-      tenetur suscipit libero obcaecati at neque consectetur quos laboriosam
-      nesciunt quasi velit, aliquam ipsa voluptatem nam! Harum recusandae
-      nostrum facere?
-    </div>
-    <ul>
-      Unordered List
-      <li>Unordered list 1</li>
-      <li>Unordered List 2</li>
-    </ul>
-    <ol>
-      Ordered List
-      <li>Ordered list 1</li>
-      <li>Ordered List 2</li>
-    </ol>
-    <table border="1">
-      <thead>
-        <tr>
-          <th colspan="2">Table</th>
-        </tr>
-        <tr>
-          <th>Head1</th>
-          <th>Head2</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>data 1</td>
-          <td>data 2</td>
-        </tr>
-      </tbody>
-    </table>
-    <form action="">
-      <label for="">Form is Block Element. Label, Input and Textarea are Inline
-        Elements</label><br />
-      <label for="fname">First Name: </label>
-      <input type="text" id="fname" />
-      <label for="lname">Last Name: </label>
-      <input type="text" id="lname" />
-      <label for="desc">Description: </label>
-      <textarea name="description" id="desc" cols="30" rows="2"></textarea>
-    </form>
-
-    <hr />
-
-    <h3>Inline Elelment</h3>
-    <span>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam
-      perferendis ab quos illo excepturi voluptates voluptate cum id repudiandae
-      et, enim harum facilis inventore accusamus numquam nulla aliquid
-      reiciendis provident.
-    </span>
-    <a href="#">Anchor Tag</a>
-    <img src="" alt="Image" /> <img src="" alt="Image2" />
-    <label for="">Dropdown Label: </label>
-    <select name="" id="">
-      <option value="">optioin 1</option>
-      <option value="">option 2</option>
-    </select>
-    <label for="">Radio Label:
-      <input type="radio" name="grp1" id="" />
-      <input type="radio" name="grp1" id="" checked />
-      <input type="radio" name="grp1" id="" />
-    </label>
-
-    <h3>Inline Block Element</h3>
-
-    <div id="div1">
-      Div with ID #div1
-    </div>
-    <script type="text/javascript">
-      // ---------- String Concat ----------
-
-      // let fname = 'Ashish'
-      // let lname = 'Goyal'
-      // let age = prompt('Guess the age.')
-      // alert(`Hi ${fname} ${lname} of age  ${age}`);
-
-      // ---------- function with default value argument ----------
-
-      // function welcome(user='ashish', message='default msg'){
-      //   alert(`Hi ${user}. Your message is ${message}`)
-      // }
-
-      // welcome('ash', 'hi');
-      // welcome();
-
-      // ---------- Arror function ----------
-
-      // function greeting(message) {
-      //   return alert(`${message} everyone`);
-      // }
-      // let greeting = (message) => alert(`${message} everyone`);
-      // greeting('Good morning');
-
-      // let greetingMulti = (arg1, arg2) => {
-      //   alert('Open console to check the error.');
-      //   if (!arg1) {
-      //     throw new Error('arg1 is required.')
-      //   }
-
-      //   if (!arg2) {
-      //     throw new Error('arg2 is required.')
-      //   }
-      // }
-      // greetingMulti();
-
-      // ---------- `this` with Arror function ----------
-
-      // function sayHi(argument) {
-      //   // body...
-      // }
-      // console.log(this);
-
-      // let nepal = {
-      //   // add property
-      //   mountains: ['Mas1', 'Msd2', 'Mdf3'],
-      //   // add method
-      //   printWithDash: function() {
-      //     // setTimeout(function(){
-      //     //   document.getElementById('div1').innerHTML(  this.mountains.join(' - '));
-      //     // }, 3000);
-      //     setTimeout(() => {
-      //       document.getElementById('div1').innerHTML = this.mountains.join(' - ');
-      //     }, 3000);
-      //   }
-      // }
-      // nepal.printWithDash();
-
-      // ---------- Destructuring Object/Array ----------
-      // let student = {
-      //   name: 'Ashish',
-      //   uid: '1234',
-      //   age: 25,
-      //   address: 'student address, CA, UMN, 30102'
-      // }
-      // let {uid, name} = student
-      // console.log(uid + ' - ' + name)
-
-      // let funStudent1 = (student) => {
-      //   let {name, age} = student;
-      //   console.log(`Hi ${name}, your age is ${age}`);
-      // }
-      // funStudent1(student);
-
-      // let funStudentInArgs = ({name, age}) => {
-      //   console.log(`Hi ${name}, your age is ${age}`);
-      // }
-      // funStudentInArgs(student);
-
-      // let [,secondEle,,fourthEle] = ['hi', 'ashish', 'goyal', 'welcome'];
-      // console.log(secondEle + ' - ', fourthEle);
-
-      // // ---------- Restructuring ----------
-      // let name = 'Everest';
-      // let height = 8435;
-      // let output = function() {
-      //   console.log(`Mt. ${this.name} is ${this.height} meter tall`);
-      // }
-
-      // let outputArrow = () => console.log(`'this' contains the windows object therefore don't have 'this.height': ${this.height}`);
-
-      // let advClmbing = {name, height, output, outputArrow};
-      // console.log(advClmbing);
-      // console.log(advClmbing.output());
-      // console.log(advClmbing.outputArrow());
-
-      // let adventureClimbing = {
-      //   name: 'Everest',
-      //   height: 8435,
-      //   output: function() {
-      //     console.log(`Mt. ${this.name} is ${this.height} meter tall`);
-      //   },
-      //   // function can also be writter an
-      //   output2() {
-      //     console.log(`Mt. ${this.name} is ${this.height} meter tall`);
-      //   }
-      // }
-      // console.log('--------------------------')
-      // console.log(adventureClimbing.output());
-      // console.log(adventureClimbing.output2());
-
-      // // ---------- Spread and rest ----------
-      // let names = ['Raju', 'Malik', 'Rakesh', 'Sameer'];
-      // let moreNames = ['Ram', 'Ravan'];
-
-      // let student = {name: 'Aman', lname: 'Singh'}
-      // let studentInfo = {contact: 'email', address: 'test, test, TEST, 123123'}
-
-      // var allNames = [...names, ...moreNames];
-      // var [first, ...rest] = allNames;
-      // console.log(`allNames: ${allNames} - first: ${first} - rest: ${rest}`)
-
-      // var studentDetail = {...student, ...studentInfo};
-      // var {contact, ...rest} = studentDetail;
-      // console.log(studentDetail, contact, rest)
-
-      // ---------- Classes and constructor ----------
-      // function Holiday(dest, days) {
-      //   console.log('inside Holiday function "this":', this);
-      //   this.dest = dest
-      //   this.days = days
-      // }
-      // Holiday.prototype.info = function() {
-      //   console.log(`${this.dest} takes ${this.days} days.`)
-      // }
-      // const india = new Holiday('India', '30');
-      // india.info();
-
-      // class Holiday {
-      //   constructor(dest, days) {
-      //     console.log('inside Holiday class "this":', this);
-      //     this.dest = dest
-      //     this.days = days
-      //   }
-
-      //   info() {
-      //     console.log(`${this.dest} takes ${this.days} days.`)
-      //   }
-
-      // }
-      // const indiaTrip = new Holiday('Delhi, India', 30);
-      // indiaTrip.info();
-
-      // // Extent existing class
-      // class Expendition extends Holiday {
-      //   constructor(dest, days, gear) {
-      //     super(dest, days);
-      //     console.log('inside extended Expendition class "this":', this);
-      //     this.gear = gear;
-      //   }
-
-      //   info() {
-      //     super.info()
-      //     console.log(`Bring your ${this.gear.join(' and your ')}`)
-      //   }
-      // }
-
-      // const newTripWithGears = new Expendition('Delhi, India', 30, ['Camera', 'Sunglasses', 'Boots', 'Flags']);
-      // newTripWithGears.info();
-    </script>
   </body>
 </html>
