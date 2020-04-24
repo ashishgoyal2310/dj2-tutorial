@@ -15,12 +15,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <title>Document</title>
     <style>
-      /* * {
+      * {
         border: 1px solid goldenrod;
       }
-      .body-outer-container {
-        border: 5px dashed crimson;
-      } */
 
       body {
         font-family: Segoe UI, Roboto, "Helvetica Neue", sans-serif;
@@ -31,80 +28,163 @@
         background-color: whitesmoke;
       }
 
-      .navbar {
-        background-color: rgba( 64, 144, 172, 0.65 );
-        color: #fff;
-        display: flex;
-        justify-content: space-around;
+      .p-tb-5 {
+        padding: 5px 0px;
+      }
+      .p-lr-5 {
+        padding: 0px 5px;
+      }
+      .p-5 {
+        padding: 5px;
       }
 
-      .navbar > * {
-        width: 30%;
+      .m-2 {
+        margin: 2px;
+      }
+
+      /* START navbar */
+        .navbar {
+          background-color: rgba( 64, 144, 172, 0.65 );
+          color: #fff;
+          display: flex;
+          justify-content: space-around;
+        }
+
+        .navbar > * {
+          width: 30%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+
+        .navbar .menu {
+          justify-content: flex-start;
+        }
+
+        .navbar .app-title {
+          justify-content: space-around;
+        }
+
+        .navbar .actions-menu {
+          justify-content: flex-end;
+        }
+
+        .navbar .menu ul {
+          margin: 5px 0px;
+          padding: 0px 0px;
+        }
+
+        .navbar .menu li {
+          margin: 0px 2px;
+        }
+
+        .navbar .actions-menu span.actions,
+        .navbar .menu li input,
+        .navbar .menu li {
+          background-color: crimson;
+        }
+
+        .navbar .actions-menu span.actions:hover,
+        .navbar .menu li input:hover,
+        .navbar .menu li:hover {
+          background-color: olive;
+        }
+
+        .navbar .actions-menu span.actions,
+        .navbar .menu li {
+          display: inline;
+          border-radius: 3px;
+          margin: 0px 0px 0px 4px;
+        }
+
+        .navbar .actions-menu a,
+        .navbar .menu a {
+          text-decoration: none;
+          color: #fff;
+        }
+
+        .navbar .app-title {
+          font-size: 2em;
+          font-family: 'Times New Roman', Times, serif;
+        }
+
+        .navbar .menu li.search-input {
+          padding: 0px;
+        }
+
+        .navbar .menu li.search-input input {
+          width: 120px;
+          height: 29px;
+          font-size: 14px;
+          outline: none;
+          border: none;
+          border-radius: 5px;
+        }
+
+        .navbar .menu li.search-input input:focus {
+          background-color: #fff;
+        }
+      /* END navbar */
+
+      /* START navbar-two */
+      .display-inline > * {
+        display: inline;
+        margin: 0px 0px 0px 4px;
+      }
+
+      .navbar-two {
+        background-color: rgba(255, 255, 255, 0.9);
+        color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: space-around;
+        font-family: cursive;
+      }
+
+      .navbar-two > * {
         display: flex;
         flex-direction: row;
         align-items: center;
       }
 
-      .navbar .menu {
+      .navbar-two .logo-menu {
         justify-content: flex-start;
       }
 
-      .navbar .app-title {
-        justify-content: space-around;
+      .navbar-two .actions-menu {
+        width: 50%;
+        justify-content: flex-start ;
       }
 
-      .navbar .actions {
+      .navbar-two .profile-menu {
         justify-content: flex-end;
       }
 
-      .navbar .menu ul {
-        margin: 5px 0px;
-        padding: 0px 0px;
+      .navbar-two .logo-menu > * {
+        margin: 0px 15px;
       }
 
-      .navbar .menu ul li {
-        margin: 0px 0px;
-      }
-
-      .navbar .actions span,
-      .navbar .menu li input,
-      .navbar .menu li {
-        background-color: crimson;
-      }
-
-      .navbar .actions span:hover,
-      .navbar .menu li input:hover,
-      .navbar .menu li:hover {
-        background-color: olive;
-      }
-
-      .navbar .actions span,
-      .navbar .menu li {
-        display: inline;
-        padding: 5px;
-        margin: 0px 2px;
-      }
-
-      .navbar .app-title {
-        font-size: 2em;
-        font-family: 'Times New Roman', Times, serif;
-      }
-
-      .navbar .menu li.search-input {
-        padding: 0px;
-      }
-
-      .navbar .menu li input:focus {
-        background-color: #fff;
-      }
-
-      .navbar .menu li.search-input input {
-        width: 120px;
-        height: 29px;
-        font-size: 14px;
-        outline: none;
+      .navbar-two input.search-input {
+        border-radius: 25px;
+        font-size: 1.5em;
+        padding: 5px 5px;
+        width: 7em;
         border: none;
+        outline: none;
       }
+
+      .navbar-two .actions-menu {
+        font-weight: bold;
+      }
+
+      .navbar-two a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .navbar-two a:hover {
+        color: #000;
+      }
+      /* END navbar-two */
 
       .sub-heading {
         background-color: rgba(255, 255, 255, 0.3);
@@ -113,6 +193,10 @@
       }
 
       /* START Make div under div scrollable at x-axis */
+      .body-outer-container {
+        border: 5px dashed crimson;
+      }
+
       .body-outer-container {
         color: #fff;
         overflow-x: auto;
@@ -218,17 +302,44 @@
     <div class="navbar">
       <div class="menu">
         <ul>
-          <li><i class="fas fa-home"></i></li>
-          <li><i class="fas fa-th-list"></i> Boards</i></li>
-          <li class="search-input"><input type="text" class="search"></li>
+          <li class="p-tb-5"><a href="" class="p-5">
+            <i class="fas fa-home"></i>
+          </a></li>
+          <li class="p-tb-5"><a href="" class="p-5">
+            <i class="fas fa-th-list"></i> Boards</i>
+          </a></li>
+          <li class="search-input"><input type="text"></li>
         </ul>
       </div>
       <div class="app-title">
         Title
       </div>
-      <div class="actions">
-        <span><i class="fas fa-plus"></i></span>
-        <span><i class="fas fa-user"></i></span>
+      <div class="actions-menu">
+        <span>Welcome: <b>Ashish </b></span>
+        <span class="actions p-5"><i class="fas fa-user"></i> Profile</span>
+        <span class="actions p-tb-5"><a href="" class="p-5"><i class="fas fa-sign-in-alt"></i></a></span>
+        <span class="actions p-tb-5"><a href="" class="p-5"><i class="fas fa-sign-out-alt"></i></a></span>
+      </div>
+    </div>
+
+    <div class="navbar-two">
+      <div class="logo-menu">
+        <h2><i class="fas fa-sign"></i> My Site Name</h2>
+        <input type="text" name="search" class="search-input" placeholder="Search">
+      </div>
+      <div class="actions-menu">
+        <ul class="display-inline">
+          <li><a href="">Link 1</a></li>
+          <li><a href="">Link 2</a></li>
+          <li><a href="">Link 2</a></li>
+          <li><a href="">Link 2</a></li>
+          <li><a href="">Link 2</a></li>
+        </ul>
+      </div>
+      <div class="profile-menu">
+        <a href="" class="p-5"><i class="fas fa-user"></i></a>
+        <a href="" class="p-5"><i class="fas fa-sign-in-alt"></i></a>
+        <a href="" class="p-5"><i class="fas fa-sign-out-alt"></i></a>
       </div>
     </div>
 
